@@ -51,7 +51,7 @@ export const fetchArtistData = artist => dispatch => {
 
   // Get the access token
   let url = window.location.href
-  let accessToken = url.match(/\#(?:access_token)\=([\S\s]*?)\&/)[1]
+  let accessToken = url.match(/#(?:access_token)=([\S\s]*?)&/)[1]
 
   dispatch(requestArtistData(artist))
   return fetch(`https://api.spotify.com/v1/search?q=${artist}&type=artist`, { 

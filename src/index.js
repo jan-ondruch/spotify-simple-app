@@ -16,8 +16,8 @@ if (process.env.NODE_ENV !== 'production') {
 	}
 }
 else {
-	if (window.location.href.match(/simple-spotify.surge.sh\/\/$/)) {
-		window.location.replace("https://accounts.spotify.com/authorize?client_id=60734ff534f246d9b9f138e42ba4950c&redirect_uri=http:%2F%2Fsimple-spotify.surge.sh%2F&response_type=token&state=123")
+	if (window.location.href.match(/simple-spotify.surge.sh\/$/)) {
+		window.location.replace("https://accounts.spotify.com/authorize?client_id=60734ff534f246d9b9f138e42ba4950c&redirect_uri=http:%2F%2Fsimple-spotify.surge.sh&response_type=token&state=123")
 	}
 }
 
