@@ -5,7 +5,7 @@ Goal of this project was to learn basics of Redux together with some API (Spotif
 Try the demo at: http://simple-spotify.surge.sh/<br>
 Improved (advanced) version of this project: [advanced-spotify](https://github.com/jan-ondruch/spotify-advanced-app-react-redux)
 
-### Not cross-browser compatible 
+#### Not cross-browser compatible 
 dropdown list styling e.g.
 
 #### To run locally:
