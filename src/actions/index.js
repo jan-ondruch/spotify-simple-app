@@ -49,14 +49,28 @@ export const fetchArtistData = artist => dispatch => {
   // First part of the curried function setArtistData
   let setArtist
 
+  // Get the access token
+  let url = window.location.href
+  let accessToken = url.match(/\#(?:access_token)\=([\S\s]*?)\&/)[1]
+
   dispatch(requestArtistData(artist))
-  return fetch(`https://api.spotify.com/v1/search?q=${artist}&type=artist`)
+  return fetch(`https://api.spotify.com/v1/search?q=${artist}&type=artist`, { 
+      method: 'get', 
+      headers: {
+        'Authorization': 'Bearer ' + accessToken,
+      }
+    })
     .then(response => response.json())
     .then(artistJson => {
       // Provide the first argument for the curried function.      
       // Fetch the album data using the 'id' fetched from the first request.
       setArtist = setArtistData(artistJson)
-      return fetch(`https://api.spotify.com/v1/artists/${artistJson.artists.items[0].id}/albums`)
+      return fetch(`https://api.spotify.com/v1/artists/${artistJson.artists.items[0].id}/albums`, { 
+          method: 'get', 
+          headers: {
+            'Authorization': 'Bearer ' + accessToken,
+          }
+        })
     })
     .then(response => response.json())
     .then(albumsJson => setArtist(albumsJson))  // provide the second argument for the curried function
