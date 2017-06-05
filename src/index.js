@@ -11,12 +11,12 @@ import createLogger from 'redux-logger'
 // Explicitly change url and redirect it to the spotify login.
 // For production redict use localhost as callback, for production the website url.
 if (process.env.NODE_ENV !== 'production') {
-  if (window.location.href.match(/localhost:3000\/$/)) {
+  if (/localhost:3000\/$/.test(window.location.href)) {
 		window.location.replace("https://accounts.spotify.com/authorize?client_id=60734ff534f246d9b9f138e42ba4950c&redirect_uri=http:%2F%2Flocalhost%3A%33%30%30%30&response_type=token&state=123")
 	}
 }
 else {
-	if (window.location.href.match(/simple-spotify.surge.sh\/$/)) {
+	if (/simple-spotify.surge.sh\/$/.test(window.location.href)) {
 		window.location.replace("https://accounts.spotify.com/authorize?client_id=60734ff534f246d9b9f138e42ba4950c&redirect_uri=http:%2F%2Fsimple-spotify.surge.sh&response_type=token&state=123")
 	}
 }
